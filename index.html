@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luminosa Spa | Relájate. Renueva. Brilla.</title>
+  <meta name="description" content="Luminosa Spa — masajes, faciales y rituales de bienestar en un ambiente cálido y sofisticado. Reserva tu sesión en español." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Paleta inspirada en Let's Relax: tonos cálidos, crema y dorado */
+      --bg:#faf6f0;         /* marfil suave */
+      --paper:#ffffff;      /* blanco limpio */
+      --ink:#222222;        /* texto principal */
+      --sub:#5f5b56;        /* texto secundario */
+      --gold:#c9a86a;       /* dorado suave */
+      --gold-deep:#b28b49;  /* dorado intenso */
+      --sand:#efe6d6;       /* beige arena */
+      --shadow:0 12px 30px rgba(34,34,34,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#fff 60%,var(--bg));color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial}
+    .container{width:min(1140px,92vw);margin:0 auto}
+    .stack{display:grid;gap:1rem}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--ink)}
+    .brand img{height:40px;width:auto}
+    .brand span{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:.3px}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+    nav a{color:var(--ink);text-decoration:none;font-weight:600;padding:.5rem .8rem;border-radius:999px}
+    nav a:hover{background:var(--sand)}
+    .cta{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff;border:0;padding:.7rem 1rem;border-radius:999px;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+
+    /* Hero */
+    .hero{padding:64px 0 40px;background:radial-gradient(700px 400px at 85% -10%,rgba(201,168,106,.22),transparent),linear-gradient(180deg,#fff, var(--bg));}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.1;margin:0}
+    .lead{color:var(--sub);font-size:clamp(1rem,1.8vw,1.08rem)}
+    .hero-card{background:var(--paper);border:1px solid #eee;border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow)}
+    .badges{display:flex;gap:.5rem;flex-wrap:wrap}
+    .badge{background:var(--sand);border-radius:999px;padding:.45rem .7rem;font-weight:600;color:#6b5a3a}
+
+    /* Secciones */
+    section{padding:72px 0}
+    .title{font-family:"Playfair Display",serif;font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 .5rem}
+    .sub{color:var(--sub);margin:0 0 1.2rem}
+
+    /* Tarjetas */
+    .grid3{display:grid;gap:1.2rem;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--paper);border:1px solid #eee;border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+    .card h3{margin:.2rem 0 .5rem}
+    .card p{color:var(--sub)}
+
+    /* Galería */
+    .gallery{display:grid;gap:1rem;grid-template-columns:repeat(12,1fr)}
+    .tile{grid-column:span 6;aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid #eee;box-shadow:var(--shadow);background:#ddd}
+    .tile img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Precios simples */
+    .pricing{display:grid;gap:1.2rem;grid-template-columns:repeat(3,minmax(0,1fr))}
+    .price{padding:1.2rem;border:1px solid #eee;border-radius:var(--radius);background:linear-gradient(180deg,#fff, #fff7ee)}
+    .amount{font-size:2rem;font-weight:800;color:#5a4727}
+
+    /* Formulario */
+    form{display:grid;gap:.8rem}
+    input,select,textarea{width:100%;padding:.85rem;border-radius:12px;border:1px solid #ddd;background:#fff;font:inherit}
+    input:focus,select:focus,textarea:focus{outline:2px solid rgba(201,168,106,.35)}
+    .two{display:grid;gap:.8rem;grid-template-columns:1fr 1fr}
+
+    /* Footer */
+    footer{border-top:1px solid #eee;padding:40px 0;background:#fff}
+
+    /* Responsive */
+    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}.grid3,.pricing{grid-template-columns:1fr 1fr}.tile{grid-column:span 12}}
+    @media (max-width:640px){nav ul{display:none}.grid3,.pricing,.two{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Inicio Luminosa Spa">
+        <!-- Reemplaza el src con tu archivo de logo: Luminosa Spa Logo 3.0 -->
+        <img src="logo-luminosa-spa-3.0.png" alt="Luminosa Spa — Logo" />
+        <span>Luminosa Spa</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#reservar" class="cta">Reservar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="stack">
+          <h1>Relájate. Renueva. <span style="color:var(--gold-deep)">Brilla.</span></h1>
+          <p class="lead">Bienvenido a <strong>Luminosa Spa</strong>, tu refugio urbano de bienestar. Masajes relajantes, faciales que iluminan y rituales sensoriales en un ambiente cálido y elegante.</p>
+          <div class="hero-card">
+            <div class="badges">
+              <span class="badge">Masajes</span>
+              <span class="badge">Faciales</span>
+              <span class="badge">Sauna / Aparatología</span>
+            </div>
+            <div class="stack" style="margin-top:.8rem">
+              <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+                <a class="cta" href="#reservar">Reserva tu sesión</a>
+                <a href="#servicios" style="font-weight:700;color:#6b5a3a;text-decoration:none">Ver servicios →</a>
+              </div>
+              <small style="color:var(--sub)">Abierto Mar–Dom · Tarjetas de regalo disponibles</small>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden">
+          <!-- Imagen hero: usa cualquiera de tus imágenes oficiales -->
+          <!-- Ejemplo: Luminosa Spa Back Massage 1.0 -->
+          <img src="luminosa-back-massage-1.0.jpg" alt="Masaje de espalda en Luminosa Spa" style="width:100%;height:auto;display:block" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="container">
+        <h2 class="title">Servicios Destacados</h2>
+        <p class="sub">Tratamientos cuidadosamente diseñados para equilibrar cuerpo y piel.</p>
+        <div class="grid3">
+          <article class="card">
+            <h3>Masaje Relajante (60–90m)</h3>
+            <p>Flujo armonioso, aceites aromáticos y presión personalizada para liberar tensión.</p>
+          </article>
+          <article class="card">
+            <h3>Facial Luminosa (60m)</h3>
+            <p>Limpieza profunda, exfoliación suave y mascarilla nutritiva para un brillo saludable.</p>
+          </article>
+          <article class="card">
+            <h3>Hidro‑limpieza Facial (75m)</h3>
+            <p>Aparatología de última generación para purificar, hidratar y suavizar la textura.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA / EVIDENCIA VISUAL -->
+    <section id="galeria" style="padding-top:32px">
+      <div class="container">
+        <h2 class="title">Ambiente & Experiencia</h2>
+        <p class="sub">Una mirada al espacio y a nuestros tratamientos.</p>
+        <div class="gallery">
+          <figure class="tile"><img src="luminosa-back-massage-1.0.jpg" alt="Luminosa Spa — Masaje de espalda" /></figure>
+          <figure class="tile"><img src="luminosa-facial-massage-1.0.jpg" alt="Luminosa Spa — Masaje facial" /></figure>
+          <figure class="tile"><img src="luminosa-facial-machine-1.0.jpg" alt="Luminosa Spa — Equipo de hidro-limpieza" /></figure>
+          <figure class="tile"><img src="luminosa-massage-chair-1.0.jpg" alt="Luminosa Spa — Sillón de masaje" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECIOS SIMPLES -->
+    <section id="precios">
+      <div class="container">
+        <h2 class="title">Paquetes & Precios</h2>
+        <p class="sub">Opciones claras. Cuidado excepcional.</p>
+        <div class="pricing">
+          <div class="price card">
+            <h3>Esencia</h3>
+            <div class="amount">$95</div>
+            <p class="sub">Facial exprés (45m) + masaje de cuello</p>
+            <a class="cta" href="#reservar">Reservar</a>
+          </div>
+          <div class="price card" style="outline:2px solid rgba(201,168,106,.35)">
+            <h3>Brillo</h3>
+            <div class="amount">$165</div>
+            <p class="sub">Facial Luminosa (60m) + terapia LED</p>
+            <a class="cta" href="#reservar">Reservar</a>
+          </div>
+          <div class="price card">
+            <h3>Serenidad</h3>
+            <div class="amount">$210</div>
+            <p class="sub">Hidro‑limpieza (75m) + infusión hidratante</p>
+            <a class="cta" href="#reservar">Reservar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="reservar">
+      <div class="container" style="display:grid;grid-template-columns:1.1fr .9fr;gap:1.4rem;align-items:start">
+        <div class="stack">
+          <h2 class="title">Reservar una Sesión</h2>
+          <p class="sub">Envíanos tu solicitud y confirmaremos por correo o WhatsApp.</p>
+          <form onsubmit="event.preventDefault(); alert('¡Gracias! Te contactaremos muy pronto.'); this.reset();">
+            <div class="two">
+              <label>
+                <span class="vh">Nombre completo</span>
+                <input required name="nombre" placeholder="Nombre completo" />
+              </label>
+              <label>
+                <span class="vh">Email</span>
+                <input required type="email" name="email" placeholder="Correo electrónico" />
+              </label>
+            </div>
+            <div class="two">
+              <label>
+                <span class="vh">Teléfono</span>
+                <input name="telefono" placeholder="Teléfono (opcional)" />
+              </label>
+              <label>
+                <span class="vh">Servicio</span>
+                <select name="servicio">
+                  <option>Masaje Relajante</option>
+                  <option>Facial Luminosa</option>
+                  <option>Hidro‑limpieza Facial</option>
+                  <option>Sillón de Masaje</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              <span class="vh">Mensaje</span>
+              <textarea rows="5" name="mensaje" placeholder="Fecha/horario preferido y notas"></textarea>
+            </label>
+            <button class="cta" type="submit">Solicitar reserva</button>
+            <small class="sub">Al enviar, aceptas nuestras políticas amistosas.</small>
+          </form>
+        </div>
+        <aside class="card stack">
+          <h3 style="margin:.2rem 0 0">Visítanos</h3>
+          <p class="sub" style="margin:.1rem 0 1rem">123 Avenida Serenidad, Suite 200 · Tu Ciudad</p>
+          <div style="aspect-ratio:4/3;border:1px solid #eee;border-radius:14px;overflow:hidden;background:#f4efe8;display:grid;place-items:center">
+            <small class="sub">Aquí va el mapa (Google Maps)</small>
+          </div>
+          <div style="display:grid;gap:.3rem;color:var(--sub)">
+            <div>Horario: Mar–Vie 10–19 · Sáb–Dom 10–17</div>
+            <div>WhatsApp / Tel: (555) 123‑4567</div>
+            <div>Correo: hola@luminosaspa.com</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <div>© <span id="anio"></span> Luminosa Spa — Todos los derechos reservados.</div>
+      <div style="display:flex;gap:.6rem;color:var(--sub)">
+        <a href="#inicio" style="text-decoration:none;color:var(--sub)">Inicio</a>
+        <span>·</span>
+        <a href="#servicios" style="text-decoration:none;color:var(--sub)">Servicios</a>
+        <span>·</span>
+        <a href="#reservar" style="text-decoration:none;color:var(--sub)">Reserva</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('anio').textContent = new Date().getFullYear();
+  </script>
+
+  <style>
+    .vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+
+  <!-- Nota: Reemplaza las rutas de las imágenes con tus archivos reales:
+       - logo-luminosa-spa-3.0.png (Luminosa Spa Logo 3.0)
+       - luminosa-back-massage-1.0.jpg (Luminosa Spa Back Massage 1.0)
+       - luminosa-facial-massage-1.0.jpg (Luminosa Spa Facial Massage 1.0)
+       - luminosa-facial-machine-1.0.jpg (Luminosa Spa Facial Cleaning Machine 1.0)
+       - luminosa-massage-chair-1.0.jpg (Luminosa Spa Massage Chair 1.0)
+  -->
+</body>
+</html>
