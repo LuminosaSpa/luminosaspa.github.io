@@ -207,22 +207,25 @@
 <p class="sub">Envíanos tu solicitud y confirmaremos por correo o WhatsApp (Envíe su número de móvil para una respuesta más rápida).</p>
 
 
-<form action="https://formsubmit.co/luminosaspa@mailfence.com" method="POST">
-  <input type="text" name="nombre" placeholder="Nombre completo" required>
-  <input type="email" name="email" placeholder="Correo electrónico" required>
-  <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
-  <select name="servicio">
-    <option>Masaje Relajante</option>
-    <option>Facial Luminosa</option>
-    <option>Hidro-limpieza Facial</option>
-    <option>Sillón de Masaje</option>
-  </select>
-  <textarea name="mensaje" placeholder="Notas o fecha preferida"></textarea>
-  <button type="submit">Solicitar reserva</button>
-
-  <!-- Opcional: configuración -->
-  <input type="hidden" name="_next" value="https://luminosaspa.com/gracias.html">
-  <input type="hidden" name="_captcha" value="false">
+<form action="https://form.taxi/s/luminosaspa@mailfence.com" method="POST">
+<div class="two">
+<input required name="nombre" placeholder="Nombre completo" />
+<input required type="email" name="email" placeholder="Correo electrónico" />
+</div>
+<div class="two">
+<input name="telefono" placeholder="Teléfono (opcional)" />
+<select name="servicio">
+<option>Masaje Relajante</option>
+<option>Facial Luminosa</option>
+<option>Hidro-limpieza Facial</option>
+<option>Sillón de Masaje</option>
+</select>
+</div>
+<textarea rows="5" name="mensaje" placeholder="Fecha/horario preferido y notas"></textarea>
+<button class="cta" type="submit">Solicitar reserva</button>
+<input type="hidden" name="_next" value="https://luminosaspa.com/gracias.html">
+<input type="hidden" name="_captcha" value="false">
+<small class="sub">Al enviar, aceptas nuestras políticas amistosas.</small>
 </form>
 
 
