@@ -207,51 +207,23 @@
 <p class="sub">Envíanos tu solicitud y confirmaremos por correo o WhatsApp (Envíe su número de móvil para una respuesta más rápida).</p>
 
 
-
-
-
-  
-  
-  <form action="https://form.taxi/s/luminosaspa@mailfence.com" method="POST">
-  <!-- Nombre y correo -->
-  <div style="display: grid; gap: 0.8rem; grid-template-columns: 1fr 1fr;">
-    <input type="text" name="nombre" placeholder="Nombre completo" required />
-    <input type="email" name="email" placeholder="Correo electrónico" required />
-  </div>
-
-  <!-- Teléfono y servicio -->
-  <div style="display: grid; gap: 0.8rem; grid-template-columns: 1fr 1fr; margin-top: 0.8rem;">
-    <input type="tel" name="telefono" placeholder="Teléfono (opcional)" />
-    <select name="servicio">
-      <option>Masaje Relajante</option>
-      <option>Facial Luminosa</option>
-      <option>Hidro-limpieza Facial</option>
-      <option>Sillón de Masaje</option>
-    </select>
-  </div>
-
-  <!-- Mensaje -->
-  <textarea rows="5" name="mensaje" placeholder="Fecha/horario preferido y notas" style="margin-top: 0.8rem;"></textarea>
-
-  <!-- Botón -->
-  <button type="submit" style="
-    background: linear-gradient(135deg, #c9a86a, #b28b49);
-    color: #fff;
-    border: none;
-    padding: 0.9rem 1.3rem;
-    border-radius: 999px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    margin-top: 0.5rem;">
-    Solicitar reserva
-  </button>
+<form action="https://formsubmit.co/luminosaspa@mailfence.com" method="POST">
+  <input type="text" name="nombre" placeholder="Nombre completo" required>
+  <input type="email" name="email" placeholder="Correo electrónico" required>
+  <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
+  <select name="servicio">
+    <option>Masaje Relajante</option>
+    <option>Facial Luminosa</option>
+    <option>Hidro-limpieza Facial</option>
+    <option>Sillón de Masaje</option>
+  </select>
+  <textarea name="mensaje" placeholder="Notas o fecha preferida"></textarea>
+  <button type="submit">Solicitar reserva</button>
 
   <!-- Opcional: configuración -->
-  <input type="hidden" name="_next" value="https://luminosaspa.com/gracias.html" />
-  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_next" value="https://luminosaspa.com/gracias.html">
+  <input type="hidden" name="_captcha" value="false">
 </form>
-
 
 
   
