@@ -210,17 +210,19 @@
 
   
 
-<form action="https://form.taxi/s/luminosaspa@mailfence.com" method="POST">
+<!-- Luminosa Spa Reserva Form — Formcarry -->
+<form id="form-reserva" action="https://formcarry.com/s/YOUR_FORMCARRY_ID" method="POST" accept-charset="UTF-8">
   <!-- Nombre y correo -->
-  <div style="display: grid; gap: 0.8rem; grid-template-columns: 1fr 1fr;">
-    <input type="text" name="nombre" placeholder="Nombre completo" required />
-    <input type="email" name="email" placeholder="Correo electrónico" required />
+  <div style="display:grid;gap:.8rem;grid-template-columns:1fr 1fr;">
+    <input type="text" name="nombre" placeholder="Nombre completo" required>
+    <input type="email" name="email" placeholder="Correo electrónico" required>
   </div>
 
   <!-- Teléfono y servicio -->
-  <div style="display: grid; gap: 0.8rem; grid-template-columns: 1fr 1fr; margin-top: 0.8rem;">
-    <input type="tel" name="telefono" placeholder="Teléfono (opcional)" />
-    <select name="servicio">
+  <div style="display:grid;gap:.8rem;grid-template-columns:1fr 1fr;margin-top:.8rem;">
+    <input type="tel" name="telefono" placeholder="Teléfono (opcional)">
+    <select name="servicio" required>
+      <option value="">Selecciona un servicio</option>
       <option>Masaje Relajante</option>
       <option>Facial Luminosa</option>
       <option>Hidro-limpieza Facial</option>
@@ -229,27 +231,46 @@
   </div>
 
   <!-- Mensaje -->
-  <textarea rows="5" name="mensaje" placeholder="Fecha/horario preferido y notas" style="margin-top: 0.8rem;"></textarea>
+  <textarea rows="5" name="mensaje" placeholder="Fecha/horario preferido y notas" style="margin-top:.8rem;"></textarea>
 
-  <!-- Botón -->
+  <!-- Botón de envío -->
   <button type="submit" style="
-    background: linear-gradient(135deg, #c9a86a, #b28b49);
-    color: #fff;
-    border: none;
-    padding: 0.9rem 1.3rem;
-    border-radius: 999px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    margin-top: 0.5rem;">
+    background:linear-gradient(135deg,#c9a86a,#b28b49);
+    color:#fff;border:0;padding:.9rem 1.3rem;border-radius:999px;
+    font-weight:700;cursor:pointer;box-shadow:0 10px 20px rgba(0,0,0,.1);
+    margin-top:.5rem;">
     Solicitar reserva
   </button>
 
-  <!-- Opcional: configuración -->
-  <input type="hidden" name="_next" value="https://luminosaspa.com/gracias.html" />
-  <input type="hidden" name="_captcha" value="false" />
+  <!-- Campos ocultos -->
+  <input type="hidden" name="_gotcha"> <!-- Honeypot anti-spam -->
 </form>
 
+<script>
+  // Control de envío para redirigir a 'gracias.html'
+  document.getElementById('form-reserva').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        window.location.href = 'https://luminosaspa.com/gracias.html';
+        form.reset();
+      } else {
+        alert('Hubo un problema al enviar tu solicitud. Intenta de nuevo.');
+      }
+    } catch (err) {
+      alert('No se pudo enviar en este momento. Revisa tu conexión e inténtalo otra vez.');
+    }
+  });
+</script>
 
 
   
