@@ -237,20 +237,7 @@
 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" />
 <small class="sub">Al enviar, aceptas nuestras políticas amistosas.</small>
 
-<script>
-document.getElementById('anio').textContent=new Date().getFullYear();
-// Envío con fetch para redirigir a gracias.html al terminar
-const form = document.getElementById('form-reserva');
-form.addEventListener('submit', async (e)=>{
-e.preventDefault();
-const data = new FormData(form);
-try{
-const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
-if(res.ok){ window.location.href = 'https://luminosaspa.com/gracias.html'; form.reset(); }
-else{ alert('Hubo un problema al enviar tu solicitud. Intenta de nuevo.'); }
-}catch(err){ alert('No se pudo enviar en este momento. Revisa tu conexión e inténtalo otra vez.'); }
-});
-</script>
+
 
 
 
