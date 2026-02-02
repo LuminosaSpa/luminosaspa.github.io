@@ -28,7 +28,6 @@
       /* Habitat-like scale: huge or small */
       --h1: clamp(56px, 7vw, 108px);
       --h2: clamp(44px, 4.5vw, 76px);
-      --h3: 18px;
       --body: 16px;
       --small: 12px;
     }
@@ -48,7 +47,7 @@
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 26px}
 
-    /* Top nav: clean, sparse, centered menu (Habitat-like) */
+    /* Top nav */
     header{
       background: var(--bg);
       position: sticky;
@@ -138,30 +137,6 @@
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
       white-space:nowrap;
     }
-
-
-    /* HERO image block (add/replace these styles in your CSS) */
-.visual.media{
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  background: #fff;
-  min-height: 420px; /* matches the previous placeholder height */
-}
-
-.visual.media img{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;     /* fills the block like Habitat’s hero image */
-  object-position: center;
-}
-
-
-
-
-    
     .btn:hover{
       transform: translateY(-1px);
       box-shadow: 0 14px 28px rgba(10,15,29,.08);
@@ -178,7 +153,7 @@
     .bar.blue{background: var(--blue);}
     .subbar{height:2px; background: linear-gradient(90deg, rgba(11,27,58,.35), rgba(29,103,255,.35));}
 
-    /* Vertical CTA bar (Habitat pattern, SCDS navy/blue) */
+    /* Vertical CTA bar */
     .sidecta{
       position: fixed;
       right: 18px;
@@ -212,12 +187,12 @@
       white-space:nowrap;
     }
 
-    /* Sections: roomy, editorial */
+    /* Sections */
     section{padding:72px 0}
     .hero{padding:78px 0 56px; background: linear-gradient(180deg, var(--softbg), #fff);}
     .grid2{
       display:grid;
-      grid-template-columns: 1.12fr .88fr; /* left text heavy, right visual */
+      grid-template-columns: 1.12fr .88fr;
       gap: 26px;
       align-items: start;
     }
@@ -242,7 +217,7 @@
       max-width: 78ch;
     }
 
-    /* Habitat-like left list with thin rules */
+    /* Left list with thin rules */
     .stacklist{
       margin-top: 24px;
       border-top: 1px solid var(--line);
@@ -267,51 +242,24 @@
       font-size: 18px;
     }
 
-    /* Right visual block (replace with your own image later) */
+    /* HERO VISUAL (now uses your image: SCDS-Filing.png) */
     .visual{
       border-radius: var(--radius);
       border: 1px solid var(--line);
-      overflow:hidden;
+      overflow: hidden;
       box-shadow: var(--shadow);
-      background:
-        radial-gradient(500px 320px at 25% 20%, rgba(29,103,255,.18), transparent 60%),
-        radial-gradient(520px 380px at 70% 70%, rgba(11,27,58,.16), transparent 62%),
-        linear-gradient(135deg, rgba(246,248,255,.95), rgba(255,255,255,1));
+      background: #fff;
       min-height: 420px;
-      position:relative;
     }
-    .visual .label{
-      position:absolute;
-      bottom:14px;
-      left:14px;
-      font-size: 12px;
-      color: var(--muted2);
-      background: rgba(255,255,255,.82);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 10px;
-    }
-    .visual .shape{
-      position:absolute;
-      right: 14%;
-      top: 18%;
-      width: 120px;
-      height: 120px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.7), rgba(29,103,255,.85));
-      box-shadow: 0 26px 60px rgba(29,103,255,.22);
-    }
-    .visual .shape2{
-      position:absolute;
-      right: 18%;
-      top: 55%;
-      width: 240px;
-      height: 22px;
-      border-radius: 999px;
-      background: rgba(11,27,58,.18);
+    .visual img{
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;      /* fills the block like Habitat */
+      object-position: center;
     }
 
-    /* Big section headline (Habitat-style) */
+    /* Big section headline */
     h2{
       margin:0 0 22px;
       font-size: var(--h2);
@@ -320,7 +268,7 @@
       max-width: 26ch;
     }
 
-    /* 4-column “system map” (Habitat “We study, then prescribe.” pattern) */
+    /* 4-column system map */
     .cols4{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -358,7 +306,7 @@
       opacity:.7;
     }
 
-    /* Workshop/service cards (Habitat workshop card rhythm) */
+    /* Service cards */
     .cardgrid{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
@@ -408,10 +356,7 @@
       font-size: 13px;
     }
 
-    /* Scope block (clean, non-salesy) */
-    .scope{
-      background: #fff;
-    }
+    /* Scope */
     .scopebox{
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -451,19 +396,9 @@
     .dontdo ul{margin:10px 0 0; padding-left: 18px}
     .dontdo li{margin:8px 0}
 
-    /* Contact form (Habitat: “Don’t know where to start?”) */
-    .contact{
-      background: #fff;
-      padding-bottom: 86px;
-    }
-    .formtitle{
-      margin: 0 0 22px;
-      font-size: 28px;
-      letter-spacing: -.35px;
-    }
-    form{
-      margin-top: 18px;
-    }
+    /* Contact form */
+    .contact{padding-bottom: 86px;}
+    form{margin-top: 18px;}
     .fields{
       display:grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -515,7 +450,7 @@
       color: var(--muted2);
     }
 
-    /* Footer: navy block */
+    /* Footer */
     footer{
       background: var(--navy);
       color: rgba(255,255,255,.88);
@@ -550,13 +485,14 @@
       .zeros{grid-template-columns: 1fr}
       section{padding:56px 0}
       .hero{padding:58px 0 40px}
+      .visual{min-height: 320px;}
     }
   </style>
 </head>
 
 <body>
-  <!-- Vertical CTA (Habitat-style) -->
-  <div class="sidecta" aria-hidden="false">
+  <!-- Vertical CTA -->
+  <div class="sidecta">
     <a href="#contact"><span>Start a Conversation</span></a>
   </div>
 
@@ -590,32 +526,11 @@
   <div class="bar"></div>
 
   <main id="top">
-
-
-
-    
-<!-- HERO (replace the existing <aside class="visual">...</aside> with this) -->
-<aside class="visual media" aria-label="SCDS hero visual">
-  <img
-    src="SCDS Filing.png"
-    alt="Organized safety documentation dashboard displayed on a laptop"
-    loading="eager"
-    decoding="async"
-  />
-</aside>
-
-
-
-
-
-    
-    
-    <!-- HERO (Habitat-like: huge headline + left list + right visual) -->
-<section class="hero">
+    <!-- HERO -->
+    <section class="hero">
       <div class="wrap">
         <div class="grid2">
           <div>
-    
             <h1>Are Your Safety Documents Audit-Ready?</h1>
             <p class="lede">
               Most companies already have safety documents — they’re just spread across binders, emails, and shared drives.
@@ -624,26 +539,11 @@
             </p>
 
             <div class="stacklist" aria-label="Common pain patterns">
-              <div class="stackitem">
-                <div class="text">Documentation Chaos</div>
-                <div class="arrow">→</div>
-              </div>
-              <div class="stackitem">
-                <div class="text">Audit &amp; Insurance Panic</div>
-                <div class="arrow">→</div>
-              </div>
-              <div class="stackitem">
-                <div class="text">1 Person With Knowledge</div>
-                <div class="arrow">→</div>
-              </div>
-              <div class="stackitem">
-                <div class="text">Blurred Responsibility</div>
-                <div class="arrow">→</div>
-              </div>
-              <div class="stackitem">
-                <div class="text">Lack of Ongoing Upkeep</div>
-                <div class="arrow">→</div>
-              </div>
+              <div class="stackitem"><div class="text">Documentation Chaos</div><div class="arrow">→</div></div>
+              <div class="stackitem"><div class="text">Audit &amp; Insurance Panic</div><div class="arrow">→</div></div>
+              <div class="stackitem"><div class="text">1 Person With Knowledge</div><div class="arrow">→</div></div>
+              <div class="stackitem"><div class="text">Blurred Responsibility</div><div class="arrow">→</div></div>
+              <div class="stackitem"><div class="text">Lack of Ongoing Upkeep</div><div class="arrow">→</div></div>
             </div>
 
             <p class="note">
@@ -651,10 +551,14 @@
             </p>
           </div>
 
-          <aside class="visual" aria-label="Visual placeholder">
-            <div class="shape" aria-hidden="true"></div>
-            <div class="shape2" aria-hidden="true"></div>
-            <div class="label">Replace this block with your brand image (e.g., system diagram, abstract, or SCDS visual)</div>
+          <!-- HERO VISUAL with your attached image -->
+          <aside class="visual" aria-label="SCDS hero visual">
+            <img
+              src="SCDS-Filing.png"
+              alt="Organized safety documentation dashboard displayed on a laptop"
+              loading="eager"
+              decoding="async"
+            />
           </aside>
         </div>
       </div>
@@ -662,7 +566,7 @@
 
     <div class="subbar"></div>
 
-    <!-- THE PROBLEM (short, calm, declarative) -->
+    <!-- THE PROBLEM -->
     <section id="pain">
       <div class="wrap">
         <h2>The way things are.</h2>
@@ -717,7 +621,7 @@
 
     <div class="bar blue"></div>
 
-    <!-- THE SYSTEM (Habitat “We study, then prescribe.” analog) -->
+    <!-- THE SYSTEM -->
     <section id="system">
       <div class="wrap">
         <h2>We organize, then maintain.</h2>
@@ -775,7 +679,7 @@
 
     <div class="subbar"></div>
 
-    <!-- SERVICES (Habitat workshop-card style: title + specs + paragraph) -->
+    <!-- SERVICES -->
     <section id="services">
       <div class="wrap">
         <h2>Services.</h2>
@@ -835,8 +739,8 @@
 
     <div class="bar"></div>
 
-    <!-- SCOPE (Habitat-like: big statement + clean metrics) -->
-    <section id="scope" class="scope">
+    <!-- SCOPE -->
+    <section id="scope">
       <div class="wrap">
         <h2>Focused on documentation.</h2>
         <p class="lede">
@@ -873,7 +777,7 @@
 
     <div class="subbar"></div>
 
-    <!-- CONTACT (Habitat “Don’t know where to start?” pattern) -->
+    <!-- CONTACT -->
     <section id="contact" class="contact">
       <div class="wrap">
         <h2>Don’t know where to start? Let us help.</h2>
@@ -881,7 +785,7 @@
           Have a question? Feel free to reach out. We love to hear from you.
         </p>
 
-        <!-- NOTE: This form is front-end only. It will NOT send unless you connect it to a backend (Formspree, Formcarry, etc.). -->
+        <!-- Front-end form only; connect to a backend later if desired -->
         <form>
           <div class="fields">
             <div>
@@ -908,26 +812,4 @@
           <div class="sendrow">
             <button class="send" type="submit">Send Form</button>
             <div class="sendnote">
-              Or email us directly: <a href="mailto:scdsllc@outlook.com"><strong>scdsllc@outlook.com</strong></a>
-            </div>
-          </div>
-        </form>
-
-        <p class="note" style="margin-top:18px;">
-          © 2026 Safety Compliance Documentation Services (SCDS)
-        </p>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="wrap">
-        <div class="foot">
-          <div>© 2026 <strong>Safety Compliance Documentation Services (SCDS)</strong></div>
-          <div>Documentation-only • Audit-ready system • 24/7 access</div>
-        </div>
-      </div>
-    </footer>
-  </main>
-</body>
-</html>
+              Or email us directly: <a href="mailto:
