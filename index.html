@@ -4,20 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Safety Compliance Documentation Services (SCDS) organizes, tracks, and maintains safety documentation for warehousing and logistics companies—without inspections, training, or regulatory advice." />
-  <title>SCDS — Safety Compliance Documentation Services</title>
+  <title>SCDS — Safety Compliance Documentation Services (Light)</title>
   <style>
     :root{
-      --bg:#0b1220;
-      --panel:#0f1a2e;
-      --card:#0e1a33;
-      --text:#eaf0ff;
-      --muted:#b9c5e8;
-      --soft:#8ea0d6;
-      --line:rgba(255,255,255,.12);
-      --accent:#5ea1ff;
-      --accent2:#8af0c8;
-      --danger:#ff7a7a;
-      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      /* Light theme while preserving navy + blue identity */
+      --bg:#f7f9ff;
+      --panel:#ffffff;
+      --card:#ffffff;
+      --text:#0b1220;      /* deep navy text */
+      --muted:#3c4c73;     /* muted navy */
+      --soft:#5a6ea6;      /* softer navy-blue */
+      --line:rgba(11,18,32,.12);
+      --accent:#1d67ff;    /* primary blue */
+      --accent2:#19c7a0;   /* mint accent (kept subtle) */
+      --danger:#c93535;
+      --shadow: 0 12px 36px rgba(11,18,32,.10);
       --radius:16px;
       --radius2:22px;
       --max:1120px;
@@ -28,9 +29,9 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(94,161,255,.22), transparent 60%),
-        radial-gradient(1000px 650px at 85% 20%, rgba(138,240,200,.12), transparent 55%),
-        radial-gradient(900px 600px at 50% 100%, rgba(94,161,255,.10), transparent 60%),
+        radial-gradient(1200px 700px at 12% 6%, rgba(29,103,255,.12), transparent 60%),
+        radial-gradient(1000px 650px at 88% 12%, rgba(25,199,160,.08), transparent 55%),
+        radial-gradient(900px 600px at 50% 100%, rgba(29,103,255,.06), transparent 60%),
         var(--bg);
       color:var(--text);
       line-height:1.5;
@@ -40,7 +41,7 @@
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,18,32,.92), rgba(11,18,32,.70));
+      background: linear-gradient(to bottom, rgba(247,249,255,.92), rgba(247,249,255,.72));
       border-bottom:1px solid var(--line);
     }
     .nav{
@@ -54,15 +55,15 @@
     }
     .mark{
       width:40px; height:40px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(94,161,255,.95), rgba(138,240,200,.85));
-      box-shadow: 0 10px 22px rgba(94,161,255,.25);
+      background: linear-gradient(135deg, rgba(29,103,255,.95), rgba(25,199,160,.70));
+      box-shadow: 0 10px 22px rgba(29,103,255,.18);
       position:relative;
       overflow:hidden;
     }
     .mark::after{
       content:"";
       position:absolute; inset:-30%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 55%);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.70), transparent 55%);
       transform: rotate(20deg);
     }
     .brand .title{
@@ -81,7 +82,7 @@
       padding:8px 10px;
       border-radius:12px;
     }
-    .links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .links a:hover{background:rgba(11,18,32,.04); color:var(--text)}
     .cta{
       display:flex; gap:10px; align-items:center;
     }
@@ -93,17 +94,23 @@
       text-decoration:none;
       font-size:13px;
       color:var(--text);
-      background: rgba(255,255,255,.05);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      background: rgba(255,255,255,.75);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       white-space:nowrap;
+      box-shadow: 0 10px 24px rgba(11,18,32,.06);
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18)}
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.95);
+      border-color: rgba(11,18,32,.18);
+      box-shadow: 0 14px 32px rgba(11,18,32,.08);
+    }
     .btn.primary{
-      border-color: rgba(94,161,255,.55);
-      background: linear-gradient(135deg, rgba(94,161,255,.22), rgba(138,240,200,.10));
-      box-shadow: 0 14px 40px rgba(94,161,255,.14);
+      border-color: rgba(29,103,255,.45);
+      background: linear-gradient(135deg, rgba(29,103,255,.14), rgba(255,255,255,.92));
+      box-shadow: 0 14px 34px rgba(29,103,255,.14);
     }
-    .btn.primary:hover{border-color: rgba(94,161,255,.85)}
+    .btn.primary:hover{border-color: rgba(29,103,255,.75)}
     .hero{
       padding:64px 0 28px;
     }
@@ -116,23 +123,25 @@
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
       padding:8px 12px;
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.78);
       border:1px solid var(--line);
       border-radius:999px;
       color:var(--muted);
       font-size:12px;
       width:fit-content;
+      box-shadow: 0 10px 22px rgba(11,18,32,.06);
     }
     .dot{
       width:10px; height:10px; border-radius:50%;
       background: var(--accent2);
-      box-shadow: 0 0 0 4px rgba(138,240,200,.12);
+      box-shadow: 0 0 0 4px rgba(25,199,160,.10);
     }
     h1{
       margin:16px 0 10px;
       font-size:40px;
       line-height:1.08;
       letter-spacing:-.6px;
+      color:#08102a;
     }
     .sub{
       margin:0 0 18px;
@@ -147,7 +156,7 @@
       margin-top:8px;
     }
     .panel{
-      background: linear-gradient(180deg, rgba(15,26,46,.78), rgba(14,26,51,.62));
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
       border:1px solid var(--line);
       border-radius:var(--radius2);
       box-shadow: var(--shadow);
@@ -160,27 +169,31 @@
       padding:10px 12px;
       border-radius:14px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.86);
       font-size:12px;
       color:var(--muted);
       display:flex; gap:8px; align-items:flex-start;
       min-width: 190px;
       flex:1 1 190px;
+      box-shadow: 0 10px 22px rgba(11,18,32,.05);
     }
-    .pill b{color:var(--text); font-weight:600}
+    .pill b{color:#08102a; font-weight:600}
     .pill .icon{
       width:22px; height:22px; border-radius:10px;
-      background: rgba(94,161,255,.16);
-      border:1px solid rgba(94,161,255,.25);
+      background: rgba(29,103,255,.10);
+      border:1px solid rgba(29,103,255,.18);
       display:flex; align-items:center; justify-content:center;
       flex:0 0 22px;
       margin-top:1px;
+      color: rgba(29,103,255,.90);
+      font-weight:800;
     }
     .section{padding:38px 0}
     .section h2{
       margin:0 0 10px;
       font-size:26px;
       letter-spacing:-.3px;
+      color:#08102a;
     }
     .section .lead{color:var(--muted); margin:0; max-width:75ch}
     .grid3{
@@ -190,13 +203,13 @@
       margin-top:18px;
     }
     .card{
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.92);
       border:1px solid var(--line);
       border-radius: var(--radius);
       padding:16px;
-      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      box-shadow: 0 12px 30px rgba(11,18,32,.07);
     }
-    .card h3{margin:0 0 8px; font-size:14px}
+    .card h3{margin:0 0 8px; font-size:14px; color:#08102a}
     .card ul{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
     .card li{margin:8px 0}
     .card .tag{
@@ -208,7 +221,7 @@
     .tag .chip{
       width:8px; height:8px; border-radius:50%;
       background: var(--accent);
-      box-shadow:0 0 0 3px rgba(94,161,255,.10);
+      box-shadow:0 0 0 3px rgba(29,103,255,.10);
     }
     .two{
       display:grid;
@@ -219,14 +232,14 @@
     .quote{
       padding:18px;
       border-radius: var(--radius2);
-      border:1px solid rgba(94,161,255,.26);
-      background: linear-gradient(135deg, rgba(94,161,255,.12), rgba(255,255,255,.03));
-      box-shadow: 0 16px 44px rgba(94,161,255,.10);
+      border:1px solid rgba(29,103,255,.20);
+      background: linear-gradient(135deg, rgba(29,103,255,.08), rgba(255,255,255,.92));
+      box-shadow: 0 16px 44px rgba(29,103,255,.10);
     }
     blockquote{
       margin:0;
       font-size:14px;
-      color:var(--text);
+      color:#08102a;
     }
     .quote small{
       display:block;
@@ -251,8 +264,9 @@
       padding:12px;
       border-radius:14px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.92);
       min-height:74px;
+      box-shadow: 0 10px 22px rgba(11,18,32,.05);
     }
     .metric .zero{
       font-size:22px;
@@ -271,7 +285,7 @@
     .footer{
       padding:26px 0 34px;
       border-top:1px solid var(--line);
-      background: rgba(0,0,0,.10);
+      background: rgba(255,255,255,.55);
     }
     .footer-grid{
       display:grid;
@@ -284,18 +298,20 @@
       padding:16px;
       border-radius: var(--radius);
       border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 12px 30px rgba(11,18,32,.07);
     }
     .contact a{
-      color:var(--text);
+      color:#08102a;
       text-decoration:none;
       padding:10px 12px;
       border-radius: 14px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.95);
       width: fit-content;
+      box-shadow: 0 10px 22px rgba(11,18,32,.06);
     }
-    .contact a:hover{background: rgba(255,255,255,.08)}
+    .contact a:hover{background: #ffffff}
     .small{color:var(--muted); font-size:12px}
     .hr{
       height:1px; background: var(--line);
@@ -305,18 +321,18 @@
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 10px;
       border-radius: 999px;
-      border:1px solid rgba(138,240,200,.30);
-      background: rgba(138,240,200,.10);
-      color: var(--text);
+      border:1px solid rgba(25,199,160,.28);
+      background: rgba(25,199,160,.10);
+      color: #08102a;
       font-size:12px;
       width: fit-content;
     }
     .badge .tick{
       width:16px; height:16px; border-radius: 6px;
-      background: rgba(138,240,200,.22);
-      border:1px solid rgba(138,240,200,.35);
+      background: rgba(25,199,160,.16);
+      border:1px solid rgba(25,199,160,.28);
       display:flex; align-items:center; justify-content:center;
-      font-weight:700;
+      font-weight:800;
       font-size:12px;
       line-height:1;
     }
@@ -559,7 +575,7 @@
               <li>Organization of training attendance records</li>
               <li>Logging of equipment and inspection records</li>
               <li>Indexing of incident and near-miss documentation</li>
-              <li>Monthly document updates as needed</li>
+              <li>Monthly updates as needed</li>
             </ul>
           </div>
 
@@ -599,7 +615,7 @@
         </p>
 
         <div class="scope">
-          <div class="quote" style="border-color: rgba(255,122,122,.28); background: linear-gradient(135deg, rgba(255,122,122,.10), rgba(255,255,255,.03));">
+          <div class="quote" style="border-color: rgba(201,53,53,.22); background: linear-gradient(135deg, rgba(201,53,53,.06), rgba(255,255,255,.92));">
             <blockquote>
               “SCDS provides documentation organization, tracking, and maintenance services only and does not provide safety training,
               compliance determinations, inspections, or regulatory advice.”
