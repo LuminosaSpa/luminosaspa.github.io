@@ -4,400 +4,465 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Safety Compliance Documentation Services (SCDS) organizes, tracks, and maintains safety documentation for warehousing and logistics companies—without inspections, training, or regulatory advice." />
-  <title>SCDS — Safety Compliance Documentation Services (Light)</title>
+  <title>SCDS — Safety Compliance Documentation Services</title>
+
+  <!-- Optional: clean system font stack (Habitat-like simplicity) -->
   <style>
     :root{
-      /* Light theme while preserving navy + blue identity */
-      --bg:#f7f9ff;
-      --panel:#ffffff;
+      /* Brand: keep Navy + Blue; light site */
+      --navy:#0b1b3a;
+      --navy2:#102a5c;
+      --blue:#1d67ff;
+      --blue2:#2f7dff;
+
+      --bg:#ffffff;
+      --bg2:#f6f8ff;
+      --text:#0b1220;
+      --muted:#3c4c73;
+      --line:rgba(11,18,32,.14);
+
       --card:#ffffff;
-      --text:#0b1220;      /* deep navy text */
-      --muted:#3c4c73;     /* muted navy */
-      --soft:#5a6ea6;      /* softer navy-blue */
-      --line:rgba(11,18,32,.12);
-      --accent:#1d67ff;    /* primary blue */
-      --accent2:#19c7a0;   /* mint accent (kept subtle) */
-      --danger:#c93535;
-      --shadow: 0 12px 36px rgba(11,18,32,.10);
-      --radius:16px;
-      --radius2:22px;
+      --shadow: 0 12px 30px rgba(11,18,32,.08);
+      --radius:14px;
       --max:1120px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:
-        radial-gradient(1200px 700px at 12% 6%, rgba(29,103,255,.12), transparent 60%),
-        radial-gradient(1000px 650px at 88% 12%, rgba(25,199,160,.08), transparent 55%),
-        radial-gradient(900px 600px at 50% 100%, rgba(29,103,255,.06), transparent 60%),
-        var(--bg);
       color:var(--text);
-      line-height:1.5;
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(29,103,255,.10), transparent 60%),
+        radial-gradient(1000px 650px at 90% 10%, rgba(29,103,255,.06), transparent 55%),
+        var(--bg);
+      line-height:1.55;
     }
+
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .topbar{
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+
+    /* NAV (Habitat-like: simple, roomy, minimal borders) */
+    header{
       position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(247,249,255,.92), rgba(247,249,255,.72));
-      border-bottom:1px solid var(--line);
+      background: linear-gradient(to bottom, rgba(11,27,58,.98), rgba(11,27,58,.92));
+      border-bottom: 1px solid rgba(255,255,255,.14);
     }
     .nav{
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
+      padding:16px 0;
       gap:14px;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
       text-decoration:none;
+      color:#fff;
+      min-width: 240px;
     }
-    .mark{
-      width:40px; height:40px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(29,103,255,.95), rgba(25,199,160,.70));
-      box-shadow: 0 10px 22px rgba(29,103,255,.18);
-      position:relative;
-      overflow:hidden;
+    .logoMark{
+      width:42px; height:42px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(29,103,255,1), rgba(255,255,255,.15));
+      border:1px solid rgba(255,255,255,.18);
+      position:relative; overflow:hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,.22);
     }
-    .mark::after{
+    .logoMark::after{
       content:"";
-      position:absolute; inset:-30%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.70), transparent 55%);
+      position:absolute; inset:-35%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 55%);
       transform: rotate(20deg);
     }
-    .brand .title{
-      display:flex; flex-direction:column;
-      line-height:1.15;
+    .brandText{display:flex; flex-direction:column; line-height:1.1}
+    .brandText strong{font-size:14px; letter-spacing:.35px}
+    .brandText span{font-size:12px; opacity:.8}
+
+    .navlinks{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
     }
-    .brand .title strong{font-size:14px; letter-spacing:.4px}
-    .brand .title span{font-size:12px; color:var(--muted)}
-    .links{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
-    }
-    .links a{
-      font-size:13px;
-      color:var(--muted);
+    .navlinks a{
+      color:rgba(255,255,255,.85);
       text-decoration:none;
-      padding:8px 10px;
+      font-size:13px;
+      padding:10px 10px;
       border-radius:12px;
     }
-    .links a:hover{background:rgba(11,18,32,.04); color:var(--text)}
-    .cta{
+    .navlinks a:hover{background:rgba(255,255,255,.10); color:#fff}
+    .navcta{
       display:flex; gap:10px; align-items:center;
     }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 14px;
-      border-radius:14px;
-      border:1px solid var(--line);
+      border-radius:12px;
       text-decoration:none;
       font-size:13px;
-      color:var(--text);
-      background: rgba(255,255,255,.75);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      border:1px solid rgba(255,255,255,.22);
+      color:#fff;
+      background: rgba(255,255,255,.08);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
       white-space:nowrap;
-      box-shadow: 0 10px 24px rgba(11,18,32,.06);
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.95);
-      border-color: rgba(11,18,32,.18);
-      box-shadow: 0 14px 32px rgba(11,18,32,.08);
-    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.32)}
     .btn.primary{
-      border-color: rgba(29,103,255,.45);
-      background: linear-gradient(135deg, rgba(29,103,255,.14), rgba(255,255,255,.92));
-      box-shadow: 0 14px 34px rgba(29,103,255,.14);
+      border-color: rgba(29,103,255,.65);
+      background: linear-gradient(135deg, rgba(29,103,255,.40), rgba(255,255,255,.08));
     }
-    .btn.primary:hover{border-color: rgba(29,103,255,.75)}
+    .btn.primary:hover{border-color: rgba(29,103,255,.90)}
+
+    /* SECTION RHYTHM (Habitat-like: big headings + clean columns) */
+    section{padding:56px 0}
+    .bar{
+      height:6px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+    }
+    .subbar{
+      height:2px;
+      background: linear-gradient(90deg, rgba(11,27,58,.25), rgba(29,103,255,.35));
+    }
+
     .hero{
-      padding:64px 0 28px;
+      background: linear-gradient(180deg, rgba(246,248,255,.70), rgba(255,255,255,1));
+      padding:64px 0 44px;
     }
-    .hero-grid{
+    .gridHero{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.15fr .85fr;
       gap:26px;
       align-items:start;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+      color: #07112a;
+      max-width: 16ch;
+    }
+    .lead{
+      margin:0 0 18px;
+      font-size:16px;
+      color:var(--muted);
+      max-width:70ch;
     }
     .kicker{
       display:inline-flex; align-items:center; gap:10px;
       padding:8px 12px;
-      background: rgba(255,255,255,.78);
-      border:1px solid var(--line);
       border-radius:999px;
-      color:var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.85);
+      color: var(--muted);
       font-size:12px;
-      width:fit-content;
-      box-shadow: 0 10px 22px rgba(11,18,32,.06);
+      width: fit-content;
     }
     .dot{
-      width:10px; height:10px; border-radius:50%;
-      background: var(--accent2);
-      box-shadow: 0 0 0 4px rgba(25,199,160,.10);
+      width:10px; height:10px; border-radius:999px;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px rgba(29,103,255,.10);
     }
-    h1{
-      margin:16px 0 10px;
-      font-size:40px;
-      line-height:1.08;
-      letter-spacing:-.6px;
-      color:#08102a;
-    }
-    .sub{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:16px;
-      max-width:60ch;
-    }
-    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 10px}
-    .fineprint{
-      color:var(--soft);
-      font-size:12px;
-      margin-top:8px;
-    }
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0 8px}
+    .actions .btnLight{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:11px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      font-size:13px;
       border:1px solid var(--line);
-      border-radius:var(--radius2);
+      color: var(--navy);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 12px 26px rgba(11,18,32,.06);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .actions .btnLight:hover{transform:translateY(-1px); border-color: rgba(11,18,32,.22); box-shadow: 0 16px 34px rgba(11,18,32,.08)}
+    .actions .btnLight.primary{
+      border-color: rgba(29,103,255,.40);
+      color: #07112a;
+      background: linear-gradient(135deg, rgba(29,103,255,.12), rgba(255,255,255,.96));
+    }
+    .fineprint{
+      margin:10px 0 0;
+      font-size:12px;
+      color: #5a6ea6;
+      max-width: 75ch;
+    }
+
+    /* Right hero panel (like Habitat’s simple content blocks) */
+    .panel{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding:18px;
     }
-    .panel h3{margin:0 0 6px; font-size:14px; letter-spacing:.2px}
+    .panel h3{margin:0 0 8px; font-size:14px; color:#07112a}
     .panel p{margin:0; color:var(--muted); font-size:13px}
-    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-    .pill{
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.86);
-      font-size:12px;
-      color:var(--muted);
-      display:flex; gap:8px; align-items:flex-start;
-      min-width: 190px;
-      flex:1 1 190px;
-      box-shadow: 0 10px 22px rgba(11,18,32,.05);
+    .panel .pillgrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:14px;
     }
-    .pill b{color:#08102a; font-weight:600}
-    .pill .icon{
+    .pill{
+      border:1px solid var(--line);
+      border-radius: 12px;
+      padding:12px;
+      background: rgba(246,248,255,.65);
+      font-size:12px;
+      color: var(--muted);
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .pill b{color:#07112a}
+    .check{
       width:22px; height:22px; border-radius:10px;
-      background: rgba(29,103,255,.10);
-      border:1px solid rgba(29,103,255,.18);
+      background: rgba(29,103,255,.12);
+      border:1px solid rgba(29,103,255,.22);
       display:flex; align-items:center; justify-content:center;
+      color: var(--blue);
+      font-weight:900;
       flex:0 0 22px;
       margin-top:1px;
-      color: rgba(29,103,255,.90);
-      font-weight:800;
-    }
-    .section{padding:38px 0}
-    .section h2{
-      margin:0 0 10px;
-      font-size:26px;
-      letter-spacing:-.3px;
-      color:#08102a;
-    }
-    .section .lead{color:var(--muted); margin:0; max-width:75ch}
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:18px;
-    }
-    .card{
-      background: rgba(255,255,255,.92);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: 0 12px 30px rgba(11,18,32,.07);
-    }
-    .card h3{margin:0 0 8px; font-size:14px; color:#08102a}
-    .card ul{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
-    .card li{margin:8px 0}
-    .card .tag{
-      display:inline-flex; gap:8px; align-items:center;
-      color:var(--soft);
-      font-size:12px;
-      margin-bottom:10px;
-    }
-    .tag .chip{
-      width:8px; height:8px; border-radius:50%;
-      background: var(--accent);
-      box-shadow:0 0 0 3px rgba(29,103,255,.10);
-    }
-    .two{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:18px;
-    }
-    .quote{
-      padding:18px;
-      border-radius: var(--radius2);
-      border:1px solid rgba(29,103,255,.20);
-      background: linear-gradient(135deg, rgba(29,103,255,.08), rgba(255,255,255,.92));
-      box-shadow: 0 16px 44px rgba(29,103,255,.10);
-    }
-    blockquote{
-      margin:0;
-      font-size:14px;
-      color:#08102a;
-    }
-    .quote small{
-      display:block;
-      color:var(--muted);
-      margin-top:10px;
-      font-size:12px;
-    }
-    .scope{
-      display:grid;
-      grid-template-columns: 1fr .9fr;
-      gap:14px;
-      margin-top:18px;
-      align-items:start;
-    }
-    .meter{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:10px;
-      margin-top:10px;
-    }
-    .metric{
-      padding:12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.92);
-      min-height:74px;
-      box-shadow: 0 10px 22px rgba(11,18,32,.05);
-    }
-    .metric .zero{
-      font-size:22px;
-      font-weight:800;
-      letter-spacing:-.4px;
-      color: var(--danger);
-      margin-bottom:2px;
-    }
-    .metric span{display:block; color:var(--muted); font-size:12px}
-    .list{
-      margin-top:10px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .list li{margin:8px 0}
-    .footer{
-      padding:26px 0 34px;
-      border-top:1px solid var(--line);
-      background: rgba(255,255,255,.55);
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:14px;
-      align-items:start;
-    }
-    .contact{
-      display:flex; flex-direction:column; gap:8px;
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 12px 30px rgba(11,18,32,.07);
-    }
-    .contact a{
-      color:#08102a;
-      text-decoration:none;
-      padding:10px 12px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.95);
-      width: fit-content;
-      box-shadow: 0 10px 22px rgba(11,18,32,.06);
-    }
-    .contact a:hover{background: #ffffff}
-    .small{color:var(--muted); font-size:12px}
-    .hr{
-      height:1px; background: var(--line);
-      margin:18px 0;
     }
     .badge{
       display:inline-flex; align-items:center; gap:8px;
+      margin-top:14px;
       padding:8px 10px;
       border-radius: 999px;
-      border:1px solid rgba(25,199,160,.28);
-      background: rgba(25,199,160,.10);
-      color: #08102a;
+      border:1px solid rgba(29,103,255,.22);
+      background: rgba(29,103,255,.08);
+      color:#07112a;
       font-size:12px;
       width: fit-content;
     }
-    .badge .tick{
-      width:16px; height:16px; border-radius: 6px;
-      background: rgba(25,199,160,.16);
-      border:1px solid rgba(25,199,160,.28);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:800;
+
+    /* Habitat-like “We study, then prescribe” section layout */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:22px;
+      align-items:start;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:30px;
+      letter-spacing:-.35px;
+      color:#07112a;
+    }
+    .muted{color:var(--muted)}
+    .cards4{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 10px 22px rgba(11,18,32,.06);
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:14px;
+      color:#07112a;
+    }
+    .card ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .card li{margin:8px 0}
+
+    /* Simple “column list” section (Habitat has lots of stacked headings + bullets) */
+    .columns3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .mini{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:16px;
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 10px 22px rgba(11,18,32,.05);
+    }
+    .mini .label{
       font-size:12px;
-      line-height:1;
+      color: var(--navy2);
+      font-weight:700;
+      letter-spacing:.2px;
+      text-transform:none;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
     }
+    .mini .chip{
+      width:9px; height:9px; border-radius:99px;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px rgba(29,103,255,.10);
+    }
+    .mini h3{margin:0 0 10px; font-size:14px; color:#07112a}
+    .mini ul{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
+    .mini li{margin:8px 0}
+
+    /* Scope block */
+    .scopeGrid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      margin-top:16px;
+      align-items:start;
+    }
+    .quote{
+      border-left: 6px solid var(--blue);
+      background: rgba(246,248,255,.70);
+      border-radius: var(--radius);
+      border:1px solid rgba(29,103,255,.20);
+      padding:16px 16px 16px 14px;
+      box-shadow: 0 12px 28px rgba(29,103,255,.07);
+    }
+    .quote p{margin:0; color:#07112a; font-size:14px}
+    .quote small{display:block; margin-top:10px; color:var(--muted); font-size:12px}
+
+    .zeros{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    .zeroBox{
+      border:1px solid var(--line);
+      border-radius: 12px;
+      padding:12px;
+      background:#fff;
+      box-shadow: 0 10px 22px rgba(11,18,32,.05);
+      min-height:74px;
+    }
+    .zeroBox .big{
+      font-size:22px;
+      font-weight:900;
+      letter-spacing:-.3px;
+      color:#b12d2d;
+      margin-bottom:2px;
+    }
+    .zeroBox span{display:block; font-size:12px; color:var(--muted)}
+
+    /* Contact / footer */
+    .contact{
+      background: var(--bg2);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    .contactCard{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow);
+    }
+    .contactCard h3{margin:0 0 8px; font-size:14px; color:#07112a}
+    .email{
+      display:inline-flex;
+      margin-top:8px;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 10px 22px rgba(11,18,32,.06);
+      color:#07112a;
+      font-size:13px;
+    }
+    .email:hover{border-color: rgba(11,18,32,.22)}
+    footer{
+      background: linear-gradient(180deg, rgba(11,27,58,.98), rgba(11,27,58,.96));
+      color: rgba(255,255,255,.86);
+      padding:22px 0;
+    }
+    footer .foot{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      font-size:12px;
+    }
+    footer .foot strong{color:#fff}
+
+    /* Responsive */
     @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr}
-      .scope{grid-template-columns: 1fr}
-      .footer-grid{grid-template-columns: 1fr}
-      h1{font-size:34px}
+      .gridHero{grid-template-columns: 1fr}
+      .split{grid-template-columns: 1fr}
+      .scopeGrid{grid-template-columns: 1fr}
+      .contactGrid{grid-template-columns: 1fr}
+      h1{font-size:38px; max-width: 22ch}
     }
-    @media (max-width: 820px){
-      .grid3{grid-template-columns: 1fr}
-      .two{grid-template-columns: 1fr}
-      .links{display:none}
+    @media (max-width: 860px){
+      .cards4{grid-template-columns: 1fr}
+      .columns3{grid-template-columns: 1fr}
+      .navlinks{display:none}
     }
   </style>
 </head>
+
 <body>
-  <!-- Top Bar -->
-  <header class="topbar">
+  <!-- NAV -->
+  <header>
     <div class="wrap">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="#top">
-          <div class="mark" aria-hidden="true"></div>
-          <div class="title">
+          <div class="logoMark" aria-hidden="true"></div>
+          <div class="brandText">
             <strong>SCDS</strong>
             <span>Safety Compliance Documentation Services</span>
           </div>
         </a>
 
-        <div class="links" aria-label="Site sections">
-          <a href="#pain">Are You Experiencing This?</a>
-          <a href="#whatwedo">What We Do</a>
-          <a href="#ongoing">Ongoing Services</a>
+        <div class="navlinks" aria-label="Site sections">
+          <a href="#pain">Pain</a>
+          <a href="#system">The System</a>
+          <a href="#ongoing">Ongoing</a>
           <a href="#scope">Scope</a>
           <a href="#contact">Contact</a>
         </div>
 
-        <div class="cta">
+        <div class="navcta">
           <a class="btn" href="#scope">Operating Scope</a>
-          <a class="btn primary" href="#contact">Contact Us</a>
+          <a class="btn primary" href="#contact">Start a Conversation</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <div class="bar" aria-hidden="true"></div>
+
+  <!-- HERO -->
   <main id="top">
     <section class="hero">
       <div class="wrap">
-        <div class="hero-grid">
+        <div class="gridHero">
           <div>
             <div class="kicker"><span class="dot" aria-hidden="true"></span> We help warehousing & logistics companies</div>
-            <h1>Documentation systems that keep you organized, audit-ready, and calm.</h1>
-            <p class="sub">
+            <h1>We make safety documentation organized, audit-ready, and calm.</h1>
+            <p class="lead">
               Most companies already have safety documents — they’re just spread across binders, emails, and shared drives.
-              SCDS centralizes everything into one organized, audit-ready system with clear versioning and 24/7 access, so documentation is no longer stressful or reactive.
+              SCDS centralizes everything into one organized, audit-ready system with clear versioning and 24/7 access,
+              so documentation is no longer stressful or reactive.
             </p>
 
-            <div class="hero-actions">
-              <a class="btn primary" href="#contact">Email SCDS</a>
-              <a class="btn" href="#whatwedo">See What We Do</a>
+            <div class="actions">
+              <a class="btnLight primary" href="#contact">Contact SCDS</a>
+              <a class="btnLight" href="#system">See the System</a>
             </div>
 
             <p class="fineprint">
-              <strong>Documentation-only:</strong> SCDS provides organization, tracking, and maintenance services only and does not provide safety training, compliance determinations, inspections, or regulatory advice.
+              <strong>Documentation-only:</strong> SCDS provides documentation organization, tracking, and maintenance services only and does not provide safety training, compliance determinations, inspections, or regulatory advice.
             </p>
           </div>
 
@@ -408,24 +473,23 @@
               SCDS centralizes everything into one organized, audit-ready system with clear versioning and 24/7 access, so documentation is no longer stressful or reactive.”
             </p>
 
-            <div class="pillrow" aria-label="Common outcomes">
+            <div class="pillgrid" aria-label="Key outcomes">
               <div class="pill">
-                <div class="icon" aria-hidden="true">✓</div>
-                <div><b>One system of record</b><br/>SharePoint-based system with controlled access.</div>
+                <div class="check" aria-hidden="true">✓</div>
+                <div><b>One system of record</b><br/>SharePoint-based document system with controlled access.</div>
               </div>
               <div class="pill">
-                <div class="icon" aria-hidden="true">✓</div>
+                <div class="check" aria-hidden="true">✓</div>
                 <div><b>Clear versioning</b><br/>File dating standards + archiving of outdated docs.</div>
               </div>
               <div class="pill">
-                <div class="icon" aria-hidden="true">✓</div>
-                <div><b>Audit-ready structure</b><br/>OSHA-aligned categories and indexing for fast retrieval.</div>
+                <div class="check" aria-hidden="true">✓</div>
+                <div><b>Audit-ready structure</b><br/>OSHA-aligned categories and fast retrieval.</div>
               </div>
             </div>
 
-            <div class="hr"></div>
             <div class="badge" title="Errors & Omissions insured">
-              <span class="tick" aria-hidden="true">✓</span>
+              <span aria-hidden="true">✓</span>
               <span><strong>E&O Insured</strong></span>
             </div>
           </aside>
@@ -433,155 +497,156 @@
       </div>
     </section>
 
-    <!-- Pain Points -->
-    <section id="pain" class="section">
-      <div class="wrap">
-        <h2>Are You Experiencing This?</h2>
-        <p class="lead">These are the patterns we see most often in warehouse and logistics operations.</p>
+    <div class="subbar" aria-hidden="true"></div>
 
-        <div class="grid3" role="list">
+    <!-- PAIN (Habitat-style: clear header + compact columns) -->
+    <section id="pain">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <h2>Are you experiencing this?</h2>
+            <p class="muted">
+              Documentation problems usually aren’t “missing work.” They’re system problems: scattered files, unclear ownership,
+              and no consistent upkeep.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Documentation chaos shows up as…</h3>
+            <p>Version conflicts, audit scramble, and knowledge locked in one person’s inbox.</p>
+          </div>
+        </div>
+
+        <div class="cards4" role="list" aria-label="Pain points">
           <div class="card" role="listitem">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Documentation Chaos</div>
-            <h3>No one knows what’s current</h3>
+            <h3>Documentation Chaos</h3>
             <ul>
-              <li>Versions conflict across folders and emails</li>
-              <li>Inconsistent labeling and dating</li>
-              <li>Slow retrieval when someone needs a record fast</li>
+              <li>No one knows what’s current</li>
+              <li>Versions conflict</li>
+              <li>Inconsistent labeling</li>
             </ul>
           </div>
           <div class="card" role="listitem">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Audit & Insurance Panic</div>
-            <h3>Scramble mode under pressure</h3>
+            <h3>Audit & Insurance Panic</h3>
             <ul>
-              <li>Teams rush to locate files</li>
-              <li>Gaps appear at the worst time</li>
-              <li>Stress spikes during audits and reviews</li>
+              <li>Teams scramble under pressure</li>
+              <li>Files are incomplete</li>
+              <li>Stress spikes</li>
             </ul>
           </div>
           <div class="card" role="listitem">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>1 Person With Knowledge</div>
-            <h3>Knowledge lives in a head or inbox</h3>
+            <h3>1 Person With Knowledge</h3>
             <ul>
-              <li>Key documentation depends on one person</li>
-              <li>Risk if they’re out, promoted, or leave</li>
-              <li>No consistent handoff or structure</li>
+              <li>Knowledge lives in their head or inbox</li>
+              <li>Risk if they’re out or leave</li>
+              <li>No consistent handoff</li>
             </ul>
           </div>
           <div class="card" role="listitem">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Blurred Responsibility</div>
-            <h3>Everyone assumes someone else has it</h3>
+            <h3>Lack of Ongoing Upkeep</h3>
             <ul>
-              <li>Safety, HR, and operations each assume ownership</li>
-              <li>No single system or standard process</li>
-              <li>Documentation becomes reactive</li>
-            </ul>
-          </div>
-          <div class="card" role="listitem">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Lack of Ongoing Upkeep</div>
-            <h3>Records don’t reflect real-time changes</h3>
-            <ul>
-              <li>New hires not reflected consistently</li>
-              <li>Incidents and near-misses not logged reliably</li>
-              <li>Training/inspection records get lost over time</li>
-            </ul>
-          </div>
-          <div class="card" role="listitem">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>System Stress</div>
-            <h3>Documentation becomes a bottleneck</h3>
-            <ul>
-              <li>Ops slows down to search for records</li>
-              <li>Uncertainty about what’s “official”</li>
-              <li>Unclear visibility across leadership</li>
+              <li>New hires not reflected</li>
+              <li>Incidents not logged consistently</li>
+              <li>Records drift over time</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- What We Do -->
-    <section id="whatwedo" class="section">
-      <div class="wrap">
-        <h2>What We Do</h2>
-        <p class="lead">We build a documentation system that is organized, consistent, and easy to maintain—without inspections or compliance determinations.</p>
+    <div class="bar" aria-hidden="true"></div>
 
-        <div class="grid3">
-          <div class="card">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Documentation Intake & Organization</div>
+    <!-- THE SYSTEM (Habitat-style: headline + stacked “service pillars”) -->
+    <section id="system">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <h2>We organize, then maintain.</h2>
+            <p class="muted">
+              SCDS is built for documentation-only work: intake, structure, versioning, access, and ongoing maintenance—without inspections or compliance determinations.
+            </p>
+          </div>
+          <div class="quote">
+            <p>
+              “Compliance documentation should not slow down operations — we make it a structured audit-ready ongoing system.”
+            </p>
+            <small>— Safety Compliance Documentation Services (SCDS)</small>
+          </div>
+        </div>
+
+        <div class="columns3" aria-label="What we do">
+          <div class="mini">
+            <div class="label"><span class="chip" aria-hidden="true"></span> Documentation Intake & Organization</div>
             <h3>We turn scattered records into a clear system</h3>
             <ul>
               <li>Centralized collection of existing safety documents</li>
               <li>Secure digital intake and document upload process</li>
-              <li>Organization of files into OSHA-aligned categories</li>
-              <li>Conversion of paper records into indexed digital files (client-provided scans)</li>
-              <li>Clear folder hierarchy for fast document retrieval</li>
+              <li>Organization into OSHA-aligned categories</li>
+              <li>Indexed digital files (client-provided scans)</li>
+              <li>Clear folder hierarchy for fast retrieval</li>
             </ul>
           </div>
 
-          <div class="card">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>System of Record Management</div>
-            <h3>One authoritative source for all documentation</h3>
+          <div class="mini">
+            <div class="label"><span class="chip" aria-hidden="true"></span> System of Record Management</div>
+            <h3>One authoritative source of truth</h3>
             <ul>
-              <li>SharePoint-based document system of record</li>
-              <li>Standardized folder architecture across all categories</li>
+              <li>SharePoint-based system of record</li>
+              <li>Standardized folder architecture</li>
               <li>Version control and file dating standards</li>
-              <li>Archiving of outdated or superseded documents</li>
-              <li>Controlled access and permissions for client users</li>
+              <li>Archiving of outdated documentation</li>
+              <li>Controlled access and permissions</li>
             </ul>
           </div>
 
-          <div class="card">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Documentation Review & Gap Visibility</div>
-            <h3>Clarity without judgment or enforcement</h3>
+          <div class="mini">
+            <div class="label"><span class="chip" aria-hidden="true"></span> Review & Gap Visibility</div>
+            <h3>Clarity without judgment</h3>
             <ul>
-              <li>Review of documentation for completeness and currency</li>
-              <li>Identification of missing, outdated, or incomplete records</li>
+              <li>Review for completeness and currency</li>
+              <li>Identify missing or incomplete records</li>
               <li>Neutral gap summaries (non-advisory)</li>
-              <li>High-level documentation readiness snapshot</li>
-              <li>Ongoing tracking of documentation status</li>
+              <li>Documentation readiness snapshot</li>
+              <li>Ongoing status tracking</li>
             </ul>
-          </div>
-        </div>
-
-        <div class="two" style="margin-top:16px;">
-          <div class="quote">
-            <blockquote>
-              “Compliance documentation should not slow down operations — we make it a structured audit-ready ongoing system.”
-            </blockquote>
-            <small>— Safety Compliance Documentation Services (SCDS)</small>
-          </div>
-          <div class="panel">
-            <h3>SCDS Safety Compliance Documentation Services — Warehouse / Logistics</h3>
-            <p>
-              Many teams don’t need more meetings, audits, or inspections—they need a clean documentation system that stays current.
-              SCDS is built to support documentation organization, tracking, and maintenance with a consistent structure and transparent access.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Ongoing Services -->
-    <section id="ongoing" class="section">
-      <div class="wrap">
-        <h2>Ongoing Services</h2>
-        <p class="lead">Once your documentation system is established, we help keep it current as business events occur.</p>
+    <div class="subbar" aria-hidden="true"></div>
 
-        <div class="grid3">
-          <div class="card">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Ongoing Record Maintenance</div>
+    <!-- ONGOING -->
+    <section id="ongoing">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <h2>Ongoing services</h2>
+            <p class="muted">
+              Once your documentation system is established, we keep it current as business events occur—so the system stays reliable.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Designed for calm reviews</h3>
+            <p>Audit-aligned structure, indexing, and readiness summaries for management visibility.</p>
+          </div>
+        </div>
+
+        <div class="columns3" aria-label="Ongoing services">
+          <div class="mini">
+            <div class="label"><span class="chip" aria-hidden="true"></span> Ongoing Record Maintenance</div>
             <h3>Keep documentation current</h3>
             <ul>
               <li>Filing of new hire documentation (client-completed)</li>
               <li>Organization of training attendance records</li>
               <li>Logging of equipment and inspection records</li>
               <li>Indexing of incident and near-miss documentation</li>
-              <li>Monthly updates as needed</li>
+              <li>Monthly document updates as needed</li>
             </ul>
           </div>
 
-          <div class="card">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Audit & Insurance Readiness Support</div>
-            <h3>Calm, structured reviews</h3>
+          <div class="mini">
+            <div class="label"><span class="chip" aria-hidden="true"></span> Audit & Insurance Readiness Support</div>
+            <h3>Structured preparation</h3>
             <ul>
               <li>Audit-aligned folder structure</li>
               <li>Document indexing for rapid access</li>
@@ -591,123 +656,116 @@
             </ul>
           </div>
 
-          <div class="card">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Client Access & Transparency</div>
+          <div class="mini">
+            <div class="label"><span class="chip" aria-hidden="true"></span> Client Access & Transparency</div>
             <h3>Your records, always accessible</h3>
             <ul>
               <li>24/7 client access to documentation system</li>
               <li>View-only or role-based access options</li>
-              <li>Shared visibility across management, HR, and operations</li>
-              <li>No document gatekeeping or file withholding</li>
+              <li>Shared visibility across management & HR</li>
+              <li>No document gatekeeping or withholding</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Scope -->
-    <section id="scope" class="section">
+    <div class="bar" aria-hidden="true"></div>
+
+    <!-- SCOPE -->
+    <section id="scope">
       <div class="wrap">
-        <h2>Our Operating Scope</h2>
-        <p class="lead">
-          SCDS provides documentation organization, tracking, and maintenance services only and does not provide safety training,
-          compliance determinations, inspections, or regulatory advice.
-        </p>
+        <div class="split">
+          <div>
+            <h2>Our operating scope</h2>
+            <p class="muted">
+              “SCDS provides documentation organization, tracking, and maintenance services only and does not provide safety training, compliance determinations, inspections, or regulatory advice.”
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Focused on documentation</h3>
+            <p>
+              Many consultants offer documentation as part of a broader service. SCDS is documentation-only—narrow focus, cleaner boundaries, lower risk.
+            </p>
+          </div>
+        </div>
 
-        <div class="scope">
-          <div class="quote" style="border-color: rgba(201,53,53,.22); background: linear-gradient(135deg, rgba(201,53,53,.06), rgba(255,255,255,.92));">
-            <blockquote>
-              “SCDS provides documentation organization, tracking, and maintenance services only and does not provide safety training,
-              compliance determinations, inspections, or regulatory advice.”
-            </blockquote>
-            <small>Documentation-only service model</small>
+        <div class="scopeGrid" aria-label="Scope details">
+          <div class="quote">
+            <p><strong>Documentation-only.</strong> No inspections, no training, no compliance determinations, no regulatory advice.</p>
+            <small>Clear scope boundaries support consistent delivery and reduce unnecessary exposure.</small>
 
-            <div class="meter" aria-label="Scope metrics">
-              <div class="metric">
-                <div class="zero">0%</div>
-                <span>Regulatory Advice</span>
-              </div>
-              <div class="metric">
-                <div class="zero">0%</div>
-                <span>Company Safety Training</span>
-              </div>
-              <div class="metric">
-                <div class="zero">0%</div>
-                <span>Compliance Determination</span>
-              </div>
-              <div class="metric">
-                <div class="zero">0%</div>
-                <span>Company Site Inspection</span>
-              </div>
+            <div class="zeros" aria-label="Scope metrics">
+              <div class="zeroBox"><div class="big">0%</div><span>Regulatory Advice</span></div>
+              <div class="zeroBox"><div class="big">0%</div><span>Company Safety Training</span></div>
+              <div class="zeroBox"><div class="big">0%</div><span>Compliance Determination</span></div>
+              <div class="zeroBox"><div class="big">0%</div><span>Company Site Inspection</span></div>
+            </div>
+
+            <div class="badge" style="margin-top:14px;">
+              <span aria-hidden="true">✓</span>
+              <span><strong>E&O Insured</strong></span>
             </div>
           </div>
 
           <div class="card">
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Outside of Our Scope</div>
-            <h3>What We Don’t Do</h3>
-            <ul class="list">
+            <h3>Outside of our scope — what we don’t do</h3>
+            <ul>
               <li><strong>Role definition & authority:</strong> Determination of compliance or non-compliance</li>
               <li><strong>Training & workforce safety:</strong> Conducting safety training, certifying employees or operators</li>
               <li><strong>Incident, injury & event documentation:</strong> Filling out forms and submitting reports to OSHA or insurers</li>
               <li><strong>Inspections & regulator interaction:</strong> Conducting safety inspections, speaking with OSHA or regulators</li>
               <li><strong>Compliance & regulatory guidance:</strong> Interpretation of OSHA standards or laws, advising on compliance strategy</li>
             </ul>
-
-            <div class="hr"></div>
-
-            <div class="tag"><span class="chip" aria-hidden="true"></span>Focused On Documentation</div>
-            <p class="small" style="margin:0;">
-              Many consultants offer documentation as part of a broader service. SCDS is documentation-only. That narrow focus allows us to maintain consistent,
-              audit-ready records without inspecting operations, training staff, or creating unnecessary exposure. It’s a cleaner, lower-risk way to manage documentation.
-            </p>
-
-            <div style="margin-top:12px;">
-              <span class="badge">
-                <span class="tick" aria-hidden="true">✓</span>
-                <span><strong>E&O Insured</strong></span>
-              </span>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
       <div class="wrap">
-        <h2>Contact Us</h2>
-        <p class="lead">Have a question? Feel free to reach out. We love to hear from you.</p>
+        <div class="split">
+          <div>
+            <h2>Start a conversation</h2>
+            <p class="muted">Have a question? Feel free to reach out. We love to hear from you.</p>
+          </div>
+          <div class="panel">
+            <h3>Direct contact</h3>
+            <p>We respond by email. Your documentation stays yours—always accessible to your team with transparent permissions.</p>
+          </div>
+        </div>
 
-        <div class="footer-grid" style="margin-top:18px;">
-          <div class="contact" aria-label="Contact details">
-            <h3 style="margin:0 0 6px;">Email</h3>
-            <p class="small" style="margin:0 0 10px;">Use the email below to contact SCDS.</p>
-            <a href="mailto:scdsllc@outlook.com">scdsllc@outlook.com</a>
-            <p class="small" style="margin:10px 0 0;">
+        <div class="contactGrid" style="margin-top:16px;">
+          <div class="contactCard">
+            <h3>Contact Us</h3>
+            <p class="muted" style="margin:0 0 8px;">Email SCDS:</p>
+            <a class="email" href="mailto:scdsllc@outlook.com">scdsllc@outlook.com</a>
+            <p class="muted" style="margin:10px 0 0; font-size:12px;">
               Safety Compliance Documentation Services (SCDS)
             </p>
           </div>
 
-          <div class="panel" aria-label="Final statement">
+          <div class="contactCard">
             <h3>SCDS</h3>
-            <p>
+            <p class="muted" style="margin:0;">
               “Compliance documentation should not slow down operations — we make it a structured audit-ready ongoing system.”
             </p>
-            <div class="hr"></div>
-            <p class="small" style="margin:0;">
-              SCDS Logo-1 (placeholder): Insert your final logo asset where needed.
-              Replace the gradient mark in the header with your official logo file when available.
+            <div class="subbar" style="margin:14px 0;"></div>
+            <p class="muted" style="margin:0; font-size:12px;">
+              Logo note: Replace the header mark with your official “SCDS Logo-1” file when ready.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- FOOTER -->
+    <footer>
       <div class="wrap">
-        <div class="small">
-          © 2026 Safety Compliance Documentation Services (SCDS)
+        <div class="foot">
+          <div>© 2026 <strong>Safety Compliance Documentation Services (SCDS)</strong></div>
+          <div>Documentation-only • Audit-ready system • 24/7 access</div>
         </div>
       </div>
     </footer>
