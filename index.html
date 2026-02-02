@@ -138,6 +138,30 @@
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
       white-space:nowrap;
     }
+
+
+    /* HERO image block (add/replace these styles in your CSS) */
+.visual.media{
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #fff;
+  min-height: 420px; /* matches the previous placeholder height */
+}
+
+.visual.media img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;     /* fills the block like Habitat’s hero image */
+  object-position: center;
+}
+
+
+
+
+    
     .btn:hover{
       transform: translateY(-1px);
       box-shadow: 0 14px 28px rgba(10,15,29,.08);
@@ -567,6 +591,24 @@
 
   <main id="top">
 
+
+
+    
+<!-- HERO (replace the existing <aside class="visual">...</aside> with this) -->
+<aside class="visual media" aria-label="SCDS hero visual">
+  <img
+    src="SCDS Filing.png"
+    alt="Organized safety documentation dashboard displayed on a laptop"
+    loading="eager"
+    decoding="async"
+  />
+</aside>
+
+
+
+
+
+    
     
     <!-- HERO (Habitat-like: huge headline + left list + right visual) -->
 <section class="hero">
